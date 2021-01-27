@@ -10,6 +10,7 @@ const Pregunta = ({
   const [error, guardarError] = useState(false);
 
   const definirPresupuesto = (e) => {
+    console.log(e.target.value);
     guardarCantidad(parseInt(e.target.value));
   };
 
@@ -30,12 +31,9 @@ const Pregunta = ({
   return (
     <Fragment>
       <h2>Coloca tu Presupuesto</h2>
+      <form onSubmit={agregarPresupuesto}>
+        {error ? <Error mensaje="el presupuesto es incorrecto" /> : null}
 
-      {error ? <Error mensaje="el presupuesto es incorrecto" /> : null}
-
-      <form onSubmit={agregarPresupuesto} />
-
-      <form>
         <input
           type="number"
           className="u-full-width"
